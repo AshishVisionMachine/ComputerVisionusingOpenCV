@@ -2,9 +2,9 @@
 from Display import Display
 from ImageFilter import ImageFilter
 from morpho import morplological
-char="Dialation"
+char="Tophat"
 Input_image="Input"
-testfunt="Dialation"
+testfunt="Tophat"
 height=380
 width=240
 kheight=5
@@ -124,3 +124,80 @@ if __name__ == "__main__":
         print("Dialation e \t" , len(imagetitle)) 
         dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))
         
+    elif "opening" in char:
+        imgfilter=ImageFilter(Input_image,height,width)
+        print("morpho operation")
+        
+        dis_obj=Display(Input_image,height,width)
+        im=dis_obj.Image_read()
+        imagelist.append(im)
+        
+        
+        morpho_obj=morplological(im,kernal,iteration)
+        im=morpho_obj.Opening()
+        imagelist.append(im)
+        
+        print("Dialation e \t" , len(imagetitle)) 
+        dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))
+        
+    elif "Closing" in char:
+        imgfilter=ImageFilter(Input_image,height,width)
+        print("morpho operation")
+        
+        dis_obj=Display(Input_image,height,width)
+        im=dis_obj.Image_read()
+        imagelist.append(im)
+        
+        
+        morpho_obj=morplological(im,kernal,iteration)
+        im=morpho_obj.Closing()
+        imagelist.append(im)
+        
+        print("Dialation e \t" , len(imagetitle)) 
+        dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))
+        
+    elif "Morpgradient" in char:
+        imgfilter=ImageFilter(Input_image,height,width)
+        print("morpho operation")
+        
+        dis_obj=Display(Input_image,height,width)
+        im=dis_obj.Image_read()
+        imagelist.append(im)
+        
+        
+        morpho_obj=morplological(im,kernal,iteration)
+        im=morpho_obj.Morphogradient()
+        imagelist.append(im)
+        
+        print("Dialation e \t" , len(imagetitle)) 
+        dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))
+    elif "Tophat" in char:
+        imgfilter=ImageFilter(Input_image,height,width)
+        print("morpho operation")
+        
+        dis_obj=Display(Input_image,height,width)
+        im=dis_obj.Image_read()
+        imagelist.append(im)
+        
+        
+        morpho_obj=morplological(im,kernal,iteration)
+        im=morpho_obj.Tophat()
+        imagelist.append(im)
+        
+        print("Dialation e \t" , len(imagetitle)) 
+        dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))    
+    elif "Blackhat" in char:
+        imgfilter=ImageFilter(Input_image,height,width)
+        print("morpho operation")
+        
+        dis_obj=Display(Input_image,height,width)
+        im=dis_obj.Image_read()
+        imagelist.append(im)
+        
+        
+        morpho_obj=morplological(im,kernal,iteration)
+        im=morpho_obj.Blackhat()
+        imagelist.append(im)
+        
+        print("Dialation e \t" , len(imagetitle)) 
+        dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))    

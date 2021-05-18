@@ -1,7 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 
-input_with_noise="input_noise.jpg"
+input_with_noise="test_morpho_2.png"
 test_input="test.jpeg"
 limit_start=1
 limit_end=4
