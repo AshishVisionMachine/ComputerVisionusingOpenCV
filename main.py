@@ -1,4 +1,4 @@
-
+import cv2
 from Display import Display
 from ImageFilter import ImageFilter
 from morpho import morplological
@@ -19,6 +19,7 @@ sigmacolor=75
 sigmaspace=75
 kernal=5
 iteration=1
+input_structure_size=cv2.MORPH_RECT
 
 if __name__ == "__main__":
     print("Select option from below functions")

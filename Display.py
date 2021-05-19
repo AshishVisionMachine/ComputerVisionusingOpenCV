@@ -1,10 +1,12 @@
 import cv2
 import matplotlib.pyplot as plt
+import numpy as np
+import datasetutility from Datautility
 
 input_with_noise="test_morpho_2.png"
 test_input="test.jpeg"
 limit_start=1
-limit_end=4
+import Machinconfig
 
 class Display:
 
@@ -29,4 +31,16 @@ class Display:
             plt.xticks([]),plt.yticks([])
             
         plt.show()
+    
+    
+    def Display_dot(self,colour,range,colour_aplpahbet,color_symbol):
+        
+        datasetutil=datasetutility()
+        knn_traindata=datasetutil.knn_trainingdata(Machinconfig.knn_start,Machinconfig.knn_range,Machinconfig.knn_datapoint)
+        colour=knn_traindata[responses.ravel()==0]
+        plt.scatter(colour[:,0],colour[:,1],range,colour_aplpahbet,color_symbol)
+        plt.show()
+
+        
+        
     
