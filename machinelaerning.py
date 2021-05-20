@@ -4,5 +4,6 @@ class MachineLearning:
     def __init__(self,method):
         self.method=method
         
-    def     
+    def  knn_nearest():
+        print("knn nearest ")
     

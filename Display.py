@@ -1,7 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-import datasetutility from Datautility
+from Datautility import datasetutility
 
 input_with_noise="test_morpho_2.png"
 test_input="test.jpeg"
@@ -33,12 +33,14 @@ class Display:
         plt.show()
     
     
-    def Display_dot(self,colour,range,colour_aplpahbet,color_symbol):
+    def Display_dot(self,colour,val_range,colour_aplpahbet,color_symbol):
         
         datasetutil=datasetutility()
         knn_traindata=datasetutil.knn_trainingdata(Machinconfig.knn_start,Machinconfig.knn_range,Machinconfig.knn_datapoint)
-        colour=knn_traindata[responses.ravel()==0]
-        plt.scatter(colour[:,0],colour[:,1],range,colour_aplpahbet,color_symbol)
+        train_label=datasetutil.knn_trainlabel(Machinconfig.knn_start,Machinconfig.knn_range,Machinconfig.knn_datapoint)
+
+        colour=knn_traindata[train_label.ravel()==0]
+        plt.scatter(knn_traindata[:,0],knn_traindata[:,1],80,'b','^')
         plt.show()
 
         

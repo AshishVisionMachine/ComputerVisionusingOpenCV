@@ -1,6 +1,6 @@
-
+import numpy as np
 class datasetutility :
-    def __init__(self,type):
+    def __init__(self,type="null"):
         self.type=type
         
     def knn_trainingdata(self,start,range ,datapoints):
