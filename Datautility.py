@@ -9,8 +9,8 @@ class datasetutility :
         
         return trainData
         
-    def knn_trainlabel(self,start,range,datapoints):
-        responses = np.random.randint(start ,range,(datapoints,1)).astype(np.float32)
+    def knn_trainlabel(self,start,label_value,datapoints):
+        responses = np.random.randint(start ,label_value,(datapoints,1)).astype(np.float32)
         
         return responses
 
