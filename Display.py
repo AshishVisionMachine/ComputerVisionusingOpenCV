@@ -5,7 +5,8 @@ from Datautility import datasetutility
 
 input_with_noise="test_morpho_2.png"
 test_input="test.jpeg"
-limit_start=1
+limit_start=0
+limit_end=1
 import Machinconfig
 
 class Display:
