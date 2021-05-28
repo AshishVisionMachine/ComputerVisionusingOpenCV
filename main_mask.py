@@ -1,10 +1,11 @@
 from mask import Imagemask 
 from Display import Display
 Input_image="Input"
-height=320
-width=240
+height=1024
+width=1024
 imagelist=[]
 imagetitle=['ïnput','output']
+#input_with_filte="filter2D.jpg"
 
 
 if __name__ == "__main__":
@@ -15,11 +16,14 @@ if __name__ == "__main__":
     imagelist.append(im)
 
     image_mask=Imagemask(Input_image,height,width)
-    kernel_2d=image_mask.twodfilter(im)
+    #kernel_2d=image_mask.twodfilter(im)
+    imsat=image_mask.Image_Saturation_conversion(im)
     
-    imagelist.append(kernel_2d)
+    imagelist.append(imsat)
     
     dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))
+    
+    
     
     
     

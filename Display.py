@@ -2,11 +2,12 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 from Datautility import datasetutility
+input_with_filte="filter2D.jpg"
 
 input_with_noise="test_morpho_2.png"
 test_input="test.jpeg"
-limit_start=0
-limit_end=1
+limit_start=1
+limit_end=2
 import Machinconfig
 
 class Display:
@@ -17,7 +18,7 @@ class Display:
         self.width=width
         
     def Image_read(self):
-        im=cv2.imread(input_with_noise)
+        im=cv2.imread(input_with_filte)
         return im
     
     def display_image(self,image):
@@ -55,6 +56,6 @@ class Display:
 
         plt.show()
 
-        
+     
         
     
