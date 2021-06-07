@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 from random import randint
+from ImageFilter import ImageFilter
 
 input_with_noise="test_morpho_2.png"
 test_input="test.jpeg"
@@ -8,11 +9,18 @@ kernel=np.array([[0, -1, 0],[-1, 5, -1],[0, -1, 0]], np.float32)
 pixelupper_saturation=255
 pixellower_saturation=0
 borderType = cv2.BORDER_CONSTANT
+Input_image="Input"
+testfunt="Tophat"
+height=380
+width=240
+
+
 
 
 class Imagemask:
     def __init__(self,image_name,height,width):
         self.image_name=image_name
+        self.imfilter=ImageFilter(Input_image,height,width)
         self.height=height
         self.width=width
         
@@ -69,7 +77,7 @@ class Imagemask:
     
     def sobelfilter(self,image,config) :
     
-        img = cv.GaussianBlur(image, (config.depth, config.depth), 0)    
+        img = self.imfilter.GaussianFilter(image, self.height, self.width, 0.5)    
         img = cv2.cvtColor(img, cv.COLOR_BGR2GRAY)
         #cv2.Sobel(image, ddepth, 1, 0, ksize=3, scale=config.scale, delta=delta, borderType=cv.BORDER_DEFAULT)
         grad_x = cv2.Sobel(gray, ddepth, 1, 0, ksize=3, scale=scale, delta=delta, borderType=cv.BORDER_DEFAULT)
