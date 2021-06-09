@@ -7,7 +7,7 @@ input_with_filte="Lion.jpg"
 input_with_noise="test_morpho_2.png"
 test_input="test.jpeg"
 limit_start=1
-limit_end=2
+limit_end=3
 import Machinconfig
 
 class Display:
