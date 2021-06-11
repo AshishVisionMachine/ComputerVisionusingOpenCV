@@ -32,9 +32,9 @@ if __name__ == "__main__":
 
     image_mask=Imagemask(Input_image,height,width)
     #kernel_2d=image_mask.twodfilter(im)
-    height_i, width_i,ch_i = im.shape
+    #height_i, width_i,ch_i = im.shape
     
-    print("image height is {} image width is {} image channel is {}".format(height_i,width_i,ch_i))
+    #print("image height is {} image width is {} image channel is {}".format(height_i,width_i,ch_i))
 
     #imsat=image_mask.Image_Saturation_conversion(im)
     #img_re=np.reshape(imsat,(height_i,width_i,ch_i))
@@ -52,7 +52,8 @@ if __name__ == "__main__":
     im=image_mask.sobelfilter(img_re,sobel_param)
     imagelist.append(im)
     
-    im=image_mask.laplacian(img_re)
+    
+    im=image_mask.cannyedge(img_re)
     imagelist.append(im)
     
     dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))

@@ -77,14 +77,41 @@ class Imagemask:
     
     def sobelfilter(self,image,config) :
     
-        img = self.imfilter.GaussianFilter(image, self.height, self.width, 0.5)    
-        img = cv2.cvtColor(img, cv.COLOR_BGR2GRAY)
+        #img = self.imfilter.GaussianFilter(image, self.height, self.width, 0.5)    
+        img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         #cv2.Sobel(image, ddepth, 1, 0, ksize=3, scale=config.scale, delta=delta, borderType=cv.BORDER_DEFAULT)
-        grad_x = cv2.Sobel(gray, ddepth, 1, 0, ksize=3, scale=scale, delta=delta, borderType=cv.BORDER_DEFAULT)
+        grad_x = cv2.Sobel(img, 3, 1, 0, ksize=3, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT)
 
-        grad_y = cv2.Sobel(gray, ddepth, 0, 1, ksize=3, scale=scale, delta=delta, borderType=cv.BORDER_DEFAULT)
+        grad_y = cv2.Sobel(img, 3, 0, 1, ksize=3, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT)
         abs_grad_x = cv2.convertScaleAbs(grad_x)
         abs_grad_y = cv2.convertScaleAbs(grad_y)
         grad = cv2.addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0)
+        
+        return grad
+    
+    def laplacian(self,image) :
+    
+        #img = self.imfilter.GaussianFilter(image, self.height, self.width, 0.5)    
+        img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        #cv2.Sobel(image, ddepth, 1, 0, ksize=3, scale=config.scale, delta=delta, borderType=cv.BORDER_DEFAULT)
+        dst = cv2.Laplacian(img, 5, ksize=3)
+        
+        abs_dst = cv2.convertScaleAbs(dst)
+
+        return abs_dst
+        #grad = cv2.addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0)
+    
+    def cannyedge(self,image) :
+        low_threshold=0
+        ratio=1
+        kernel_size=3
+       
+        dst=cv2.Canny(image, low_threshold, low_threshold*ratio, kernel_size)
+        mask = dst != 0
+        
+        dst = image * (mask[:,:,None].astype(image.dtype))
+
+        return dst
+        #grad = cv2.addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0)
     
 

@@ -2,7 +2,7 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 from Datautility import datasetutility
-input_with_filte="Lion.jpg"
+input_with_filte="lion.jpg"
 
 input_with_noise="test_morpho_2.png"
 test_input="test.jpeg"
