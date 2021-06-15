@@ -2,12 +2,12 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 from Datautility import datasetutility
-input_with_filte="lion.jpg"
+input_with_filte="balls.jpg"
 
 input_with_noise="test_morpho_2.png"
 test_input="test.jpeg"
 limit_start=1
-limit_end=3
+limit_end=2
 import Machinconfig
 
 class Display:

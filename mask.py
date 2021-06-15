@@ -113,5 +113,13 @@ class Imagemask:
 
         return dst
         #grad = cv2.addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0)
-    
+    def Huge_transform(self,image):
+               
+        #img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        
+        rows = image.shape[0]
+        circles = cv2.HoughCircles(image, cv2.HOUGH_GRADIENT, 1, rows / 8,
+                               param1=100, param2=30,
+                               minRadius=1, maxRadius=30)
 
+        return circles
