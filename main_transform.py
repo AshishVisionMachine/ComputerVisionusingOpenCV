@@ -1,5 +1,6 @@
 from mask import Imagemask 
 from Display import Display
+from transform import transform
 from ImageFilter import ImageFilter
 import cv2
 
@@ -31,6 +32,8 @@ def circle_draw(image,circles):
     
 def main():
     
+    transform_o=transform(True)
+    
     print("mask operation")
     dis_obj=Display(Input_image,height,width)
     im=dis_obj.Image_read()
@@ -38,7 +41,7 @@ def main():
 
     image_mask=Imagemask(Input_image,height,width)
     #kernel_2d=image_mask.twodfilter(im)
-    #height_i, width_i,ch_i = im.shape
+    height_i, width_i,ch_i = im.shape
     
     #print("image height is {} image width is {} image channel is {}".format(height_i,width_i,ch_i))
 
@@ -57,7 +60,7 @@ def main():
     
     #img_re=image_mask.bilateral_filter(im_out,filer_size_bl)
     #img_re=image_mask.image_border(img_re)
-    img_circles=circle_draw(im,img_cricles)
+    img_circles=transform_o.remapping_image(im,height_i,width_i)
     imagelist.append(img_circles)
     
     dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))
