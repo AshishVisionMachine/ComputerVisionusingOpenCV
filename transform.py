@@ -8,7 +8,6 @@ class transform:
         new_img=[]#np.zeros((height,width),int)
         img_x=np.zeros((image.shape[0],image.shape[1]),dtype=np.float32)
         img_y=np.zeros((image.shape[0],image.shape[1]),dtype=np.float32)
-        N=100
         print("transofm image heigh and width before transofrm in {} and {}".format(height,width))
         for i in range(image.shape[0]):
             for j in range(image.shape[1]):
