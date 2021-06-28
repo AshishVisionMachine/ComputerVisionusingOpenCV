@@ -60,9 +60,10 @@ def main():
     
     #img_re=image_mask.bilateral_filter(im_out,filer_size_bl)
     #img_re=image_mask.image_border(img_re)
-    img_x,img_y=transform_o.remapping_image(im,height_i,width_i)
-    dst_img = cv2.remap(im, img_x, img_y, cv2.INTER_LINEAR)
-    imagelist.append(dst_img)
+    #img_x,img_y=transform_o.Img_warpAffine(im,height_i,width_i)
+    img_trans=transform_o.Img_warpAffine(im,height_i,width_i)
+    #dst_img = cv2.remap(im, img_x, img_y, cv2.INTER_LINEAR)
+    imagelist.append(img_trans)
     
     dis_obj.Display_plot(imagetitle,imagelist,len(imagetitle))
    
