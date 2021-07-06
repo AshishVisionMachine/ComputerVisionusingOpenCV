@@ -58,3 +58,9 @@ class transform:
 
             
         return warp_dst          
+        
+    def Img_Histogram(self,image):
+                
+        src = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        img_mod = cv2.equalizeHist(src)
+        return img_mod
